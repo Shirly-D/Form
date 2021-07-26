@@ -2,8 +2,7 @@
 
 */
 
-var form = document.getElementById('form')
-form.addEventListener('submit', function(event) {
+function submit(event) {
     event.preventDefault();
 
     var fname = document.getElementById('fname').value;
@@ -19,7 +18,7 @@ form.addEventListener('submit', function(event) {
     }
     var address = document.getElementById('address').value;
     var check = document.getElementById('check').value;
-})
+}
 
 
 // function required() 
