@@ -52,7 +52,7 @@
     <!--header section start-->
     <!--main section start-->
     <main>
-      <form action="#fixme" method="POST" id="form" name="forms">
+      <form action="#fixme" method="POST" onsubmit="formSubmit(event)" id="form">
         <div>
           <label for="fname">First Name:</label>
           <input type="text" name="fname" id="fname">
@@ -69,7 +69,7 @@
           <label for="female">Female</label>
         </div>
         <div>
-          <label for="address">Address:</label>
+          <label for="address">Address</label>
           <textarea name="address" id="address" cols="30" rows="6"></textarea>
         </div>
         <div>
@@ -77,7 +77,7 @@
           <label for="check">Terms and conditions</label>
         </div>
         <div>
-          <input type="submit" name="submit" value="Submit" onsubmit="submit()">
+          <input type="submit" name="submit" value="Submit">
           <input type="button" name="cancel" value="Cancel" onclick="cancel()">
         </div>
 
