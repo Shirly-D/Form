@@ -2,7 +2,7 @@
 
 */
 
-function submit(event) {
+function formSubmit(event) {
     event.preventDefault();
 
     var fname = document.getElementById('fname').value;
