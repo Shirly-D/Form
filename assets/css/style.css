@@ -120,6 +120,29 @@ li {
   main styling starts here
 =================================*/
 
+main form {
+  width: 45%;
+  border: 1px solid #000;
+  padding: 30px 0;
+  margin-top: 60px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+}
+
+main div {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+div input, textarea {
+  margin-left: 10%;
+}
+
+
+
 
 
 
