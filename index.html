@@ -52,7 +52,7 @@
     <!--header section start-->
     <!--main section start-->
     <main>
-      <form action="#fixme" method="POST" onsubmit="formSubmit(event)" id="form">
+      <form action="#fixme" method="POST" id="form">
         <div>
           <label for="fname">First Name:</label>
           <input type="text" name="fname" id="fname">
@@ -62,7 +62,7 @@
           <input type="text" name="lname" id="lname">
         </div>
         <div>
-          <label for="gender">Gender:</label>
+          <label>Gender:</label>
           <input type="radio" id="male" name="rad_btn" value="male">
           <label for="male">Male</label>
           <input type="radio" id="female" name="rad_btn" value="female">
@@ -77,8 +77,8 @@
           <label for="check">Terms and conditions</label>
         </div>
         <div>
-          <input type="submit" name="submit" value="Submit">
-          <input type="button" name="cancel" value="Cancel" onclick="cancel()">
+          <button type="submit" name="submit" id="submit">Submit</button>
+          <button type="button" name="cancel" id="cancel">Cancel</button>
         </div>
 
 
