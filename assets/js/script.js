@@ -6,9 +6,11 @@ function formSubmit(event) {
     event.preventDefault();
 
     var fname = document.getElementById('fname').value;
+    console.log(fname);
     var lname = document.getElementById('lname').value;
+    console.log(lname);
     var gender = document.getElementsByName('rad_btn');
-    for (var i = 1; i < gender.length; i++)
+    for (var i = 0; i < gender.length; i++)
     {
         if (gender[i].checked)
         {
@@ -16,8 +18,11 @@ function formSubmit(event) {
             document.getElementById('female').value;
         }
     }
+    console.log(gender);
     var address = document.getElementById('address').value;
+    console.log(address);
     var check = document.getElementById('check').value;
+    console.log(check);
 }
 
 
@@ -83,7 +88,7 @@ function formSubmit(event) {
 // adg adh adi aeg aeh aei afg afh afi bdg bdh bdi beg beh bei bfg bfh bfi cdg cdh cdi ceg ceh cei cfg cfh cfi
 
 // var mobile = [ "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" ];
-// var num = [2, 3, 4];
+// var num = [5, 3, 2, 6, ];
 // var n = num.length;
 
 // function words (num, current_no, result, n)
