@@ -135,14 +135,8 @@ main div {
 }
 
 div input, textarea, button { margin-left: 10%; }
-table { border: 1px solid black; }
+table, tr, td { border: 1px solid #000; }
 
-th, td{
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-}
-
-th:nth-child(2n), td:nth-child(2n){ border-right:none; }
 
 
 
