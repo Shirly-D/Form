@@ -44,24 +44,40 @@ function display() {
     var table = document.createElement('table');
     var thRow = document.createElement('tr');
     var thName = document.createElement('th');
-    thName.textContent="Name";
+    thName.textContent = "Name";
     var thLname = document.createElement('th');
+    thLname.textContent = "Last Name";
     var thGen = document.createElement('th');
+    thGen.textContent = "Gender";
     var thAddress = document.createElement('th');
+    thAddress.textContent = "Address";
     var thEdit = document.createElement('th');
+    thEdit.textContent = "Edit";
     var thDelete = document.createElement('th');
-     thRow.appendChild(thName);
+    thDelete.textContent = "Delete";
+    thRow.appendChild(thName);
+    thRow.appendChild(thLname);
+    thRow.appendChild(thGen);
+    thRow.appendChild(thAddress);
+    thRow.appendChild(thEdit);
+    thRow.appendChild(thDelete);
     table.appendChild(thRow);
 
-
+    
     for (var i = 0; i < detail.length; i++){
         var tr = document.createElement('tr');
         var fname = document.createElement('td');
-        fname.textContent=detail[i].fname;
+        fname.textContent = detail[i].fname;
         tr.appendChild(fname);
-        lname = detail[i].lname;
-        gender = detail[i].gender;
-        address= detail[i].address;
+        var lname = document.createElement('td');
+        lname.textContent = detail[i].lname;
+        tr.appendChild(lname);
+        var gender = document.createElement('td');
+        gender.textContent = detail[i].gender;
+        tr.appendChild(gender);
+        var address = document.createElement('td');
+        address.textContent = detail[i].address;
+        tr.appendChild(address);
         table.appendChild(tr);
     }
     document.getElementsByTagName('body')[0].appendChild(table);
