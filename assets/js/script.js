@@ -29,6 +29,10 @@ function formSubmit(event) {
         }
         detail.push(obj);
         // console.log(detail);
+        document.getElementById('fname').value = "";
+        document.getElementById('lname').value = "";
+        document.getElementById('address').value = "";
+        document.getElementById('check').checked = "";
         display();
 
     }
@@ -85,36 +89,54 @@ function display() {
         tr.appendChild(address);
         var btnEdit = document.createElement('button');
         btnEdit.textContent = "Edit";
+        // btnEdit.classList.add('editButton')
         tr.appendChild(btnEdit);
         var btnDelete = document.createElement('button');
         btnDelete.textContent = "Delete";
         tr.appendChild(btnDelete);
+        btnDelete.removeEventListener('click', delete_row);
         table.appendChild(tr);
     }
     body.appendChild(table);
+
+//     var editButtonElem = document.getElementsByClassName('editButton');
+// console.log(editButtonElem);
+// for(var j=0; j < editButtonElem.length; j++) {
+//     console.log(j);
+//     editButtonElem[j].addEventListener('click', function(e){
+//         console.log(this === e.target);
+//         if(this === e.target){
+
+//             console.log(j)
+//             edit(detail[j]);
+//         }
+//     })
 }
 
-var can = document.getElementById('cancel');
-can.removeEventListener('click', cancel);
-// console.log(cancel);
+
 
 function cancel() {
-    document.getElementById('fname').value = "";
-    document.getElementById('lname').value = "";
-    document.getElementById('male').value = "";
-    document.getElementById('female').value = "";
-    document.getElementById('address').value = "";
-    document.getElementById('check').value = "";
+    var can = document.getElementById('cancel');
+    can.removeEventListener('reset', cancel);
+    // console.log(cancel);
+   
+}
+cancel();
+
+
+
+
+
+function edit(obj) {
+    document.getElementById('fname').value = obj.fname;
+    console.log(obj);
 }
 
-console.log(cancel());
+function delete_row() {
+    document.getElementsByTagName('table').remove;
+}
 
-// function delete_row()
-// {
-//     var btnDelete;
-//  document.getElementsByTagName("button").outerHTML = btnDelete;
-// }
-// delete_row();
+
 
 
 
