@@ -98,17 +98,16 @@ var can = document.getElementById('cancel');
 can.removeEventListener('click', cancel);
 // console.log(cancel);
 
-// function cancel() {
-//    var fname = document.getElementById('fname').value = "";
-//    console.log(fname);
-//    var lname = document.getElementById('lname').value = "";
-//    var male = document.getElementById('male').value = "";
-//    var female = document.getElementById('female').value = "";
-//    var address = document.getElementById('address').value = "";
-//    var check = document.getElementById('check').value = "";
-// }
+function cancel() {
+    document.getElementById('fname').value = "";
+    document.getElementById('lname').value = "";
+    document.getElementById('male').value = "";
+    document.getElementById('female').value = "";
+    document.getElementById('address').value = "";
+    document.getElementById('check').value = "";
+}
 
-// console.log(cancel());
+console.log(cancel());
 
 // function delete_row()
 // {
