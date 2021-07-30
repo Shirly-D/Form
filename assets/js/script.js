@@ -41,6 +41,11 @@ function formSubmit(event) {
 }
 
 function display() {
+    var body =  document.getElementsByTagName('body')[0];
+    var tableElement = body.getElementsByTagName('table')  
+    if(tableElement && tableElement.length){
+        body.removeChild(tableElement[0]);
+    }
     var table = document.createElement('table');
     var thRow = document.createElement('tr');
     var thName = document.createElement('th');
@@ -78,30 +83,47 @@ function display() {
         var address = document.createElement('td');
         address.textContent = detail[i].address;
         tr.appendChild(address);
+        var btnEdit = document.createElement('button');
+        btnEdit.textContent = "Edit";
+        tr.appendChild(btnEdit);
+        var btnDelete = document.createElement('button');
+        btnDelete.textContent = "Delete";
+        tr.appendChild(btnDelete);
         table.appendChild(tr);
     }
-    document.getElementsByTagName('body')[0].appendChild(table);
+    body.appendChild(table);
 }
 
-
-
-
-
-
-
+var can = document.getElementById('cancel');
+can.removeEventListener('click', cancel);
+// console.log(cancel);
 
 // function cancel() {
-//     var a;
-//     var b = confirm("Are you sure..?");
-//     if (b == true) {
-//         a = "abc";
-//     }
-//     else
-//     {
-//         a = "xyz";
-//     }
-//     document.getElementById("cancel").innerHTML = a;
+//    var fname = document.getElementById('fname').value = "";
+//    console.log(fname);
+//    var lname = document.getElementById('lname').value = "";
+//    var male = document.getElementById('male').value = "";
+//    var female = document.getElementById('female').value = "";
+//    var address = document.getElementById('address').value = "";
+//    var check = document.getElementById('check').value = "";
 // }
+
+// console.log(cancel());
+
+// function delete_row()
+// {
+//     var btnDelete;
+//  document.getElementsByTagName("button").outerHTML = btnDelete;
+// }
+// delete_row();
+
+
+
+
+
+
+
+
 
 
 
