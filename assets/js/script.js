@@ -8,13 +8,14 @@ var detail = [];
 
 function formSubmit(event) {
     event.preventDefault();
-    var fname = document.getElementById('fname').value;
-    var lname = document.getElementById('lname').value;
-    var male = document.getElementById('male').value;
-    var female = document.getElementById('female').value;
+    var fname = document.myForm.fname.value;
+    var lname = document.myForm.lname.value;
+    var male = document.myForm.rad_btn.value;
+    var female = document.myForm.rad_btn.value;
     var gender = male ? male : female ? female : "";
-    var address = document.getElementById('address').value;
-    var check = document.getElementById('check').checked;
+    var address = document.myForm.address.value;
+    var check = document.myForm.checkbox.checked;
+
 
     if (fname != "" && lname != "" && gender != "" && address != "" && check != "")
     {
@@ -38,7 +39,22 @@ function formSubmit(event) {
     }
     else
     {
-        alert('Please fill all fields..');
+        if (fname == null || fname == ""){
+            alert("First name can't be blank");
+            return false;
+        }else if (lname == null || lname == ""){
+            alert("Last name can't be blank");
+            return false;
+        }else if (male == "" || female == ""){
+            alert("Gender is not selected");
+            return false;
+        }else if (address == ""){
+            alert("Address can't be empty");
+            return false;
+        }else if (check == ""){
+            alert("Checkbox needs to be checked");
+            return false;
+        }
     }
 
 
@@ -89,52 +105,40 @@ function display() {
         tr.appendChild(address);
         var btnEdit = document.createElement('button');
         btnEdit.textContent = "Edit";
+        var tdEdit = document.createElement('td');
+        tdEdit.appendChild(btnEdit);
         // btnEdit.classList.add('editButton')
-        tr.appendChild(btnEdit);
+        tr.appendChild(tdEdit);
         var btnDelete = document.createElement('button');
         btnDelete.textContent = "Delete";
-        tr.appendChild(btnDelete);
-        btnDelete.removeEventListener('click', delete_row);
+        btnDelete.classList.add('del_btn');
+        var tdDelete = document.createElement('td');
+        tdDelete.appendChild(btnDelete);
+        btnDelete.addEventListener('click', function(e){
+            console.log(e.target.parentNode.parentNode);
+
+            if (this == e.target){
+                e.target.parentNode.parentNode.remove();
+                }
+        })
+        tr.appendChild(tdDelete);
         table.appendChild(tr);
+        
     }
     body.appendChild(table);
 
-//     var editButtonElem = document.getElementsByClassName('editButton');
-// console.log(editButtonElem);
-// for(var j=0; j < editButtonElem.length; j++) {
-//     console.log(j);
-//     editButtonElem[j].addEventListener('click', function(e){
-//         console.log(this === e.target);
-//         if(this === e.target){
-
-//             console.log(j)
-//             edit(detail[j]);
-//         }
-//     })
-}
-
+ }
 
 
 function cancel() {
     var can = document.getElementById('cancel');
-    can.removeEventListener('reset', cancel);
-    // console.log(cancel);
-   
+    can.removeEventListener('reset', cancel);   
 }
 cancel();
 
 
 
 
-
-function edit(obj) {
-    document.getElementById('fname').value = obj.fname;
-    console.log(obj);
-}
-
-function delete_row() {
-    document.getElementsByTagName('table').remove;
-}
 
 
 
