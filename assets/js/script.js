@@ -20,15 +20,21 @@ function formSubmit(event) {
     if (fname != "" && lname != "" && gender != "" && address != "" && check != "")
     {
         alert('Thank you...!');
-        console.log(fname, lname, gender, address, check);
-
         var obj = {
             fname : fname,
             lname : lname,
             gender : gender,
             address : address
         }
-        detail.push(obj);
+
+        if(isEdit) {
+        detail[index] = obj;
+        isEdit = false;
+
+        }else {
+            detail.push(obj);
+        }
+        
         // console.log(detail);
         document.getElementById('fname').value = "";
         document.getElementById('lname').value = "";
@@ -57,8 +63,10 @@ function formSubmit(event) {
         }
     }
 
-
 }
+
+var index = -1;
+var isEdit = false;
 
 function display() {
     var body =  document.getElementsByTagName('body')[0];
@@ -105,9 +113,28 @@ function display() {
         tr.appendChild(address);
         var btnEdit = document.createElement('button');
         btnEdit.textContent = "Edit";
+        btnEdit.classList.add('editButton')
         var tdEdit = document.createElement('td');
         tdEdit.appendChild(btnEdit);
-        // btnEdit.classList.add('editButton')
+        btnEdit.addEventListener('click', function(e){
+            // console.log(document.querySelector('.editButton'));
+            var eBtn = document.querySelectorAll('.editButton');
+            
+            for(var x = 0; x < eBtn.length; x++){
+                isEdit = true;
+               if(e.target == eBtn[x]) {
+                   index = x
+               } 
+            }
+            
+            document.myForm.fname.value = detail[index].fname;
+            document.myForm.lname.value = detail[index].lname;
+            document.myForm.rad_btn.value = detail[index].male;
+            document.myForm.rad_btn.value = detail[index].female;
+            document.myForm.address.value = detail[index].address;
+            document.myForm.checkbox.checked = detail[index].check;
+        })
+
         tr.appendChild(tdEdit);
         var btnDelete = document.createElement('button');
         btnDelete.textContent = "Delete";
@@ -115,7 +142,6 @@ function display() {
         var tdDelete = document.createElement('td');
         tdDelete.appendChild(btnDelete);
         btnDelete.addEventListener('click', function(e){
-            console.log(e.target.parentNode.parentNode);
 
             if (this == e.target){
                 e.target.parentNode.parentNode.remove();
@@ -132,9 +158,11 @@ function display() {
 
 function cancel() {
     var can = document.getElementById('cancel');
-    can.removeEventListener('reset', cancel);   
+    can.removeEventListener('reset', cancel);  
+    isEdit = false;
 }
 cancel();
+
 
 
 
